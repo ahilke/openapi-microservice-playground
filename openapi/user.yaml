@@ -1,0 +1,73 @@
+openapi: 3.0.3
+
+info:
+    title: Ping API
+    version: 1.0.0
+
+paths:
+    /user:
+        post:
+            operationId: createUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/User"
+            responses:
+                201:
+                    description: User was created and returned.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/User"
+
+    /user/{userId}:
+        parameters:
+            - name: userId
+              in: path
+              required: true
+              description: ID of requested user.
+              schema:
+                  type: string
+        get:
+            operationId: getUser
+            responses:
+                200:
+                    description: User was found and returned.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/User"
+                404:
+                    description: No user found for given ID.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+
+components:
+    schemas:
+        User:
+            type: object
+            required:
+                - id
+                - email
+            properties:
+                id:
+                    type: string
+                email:
+                    type: string
+                name:
+                    type: string
+        Error:
+            type: object
+            required:
+                - code
+                - message
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+                details:
+                    type: object
