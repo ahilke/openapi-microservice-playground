@@ -1,13 +1,10 @@
 {
-    "name": "openapi-graphql-gateway",
+    "name": "nestjs-generated-openapi",
     "version": "0.0.0",
-    "description": "A demo project to showcase and experiment with various technologies to connect REST APIs described by OpenAPI with GraphQL.",
+    "description": "A NestJS service that generates an OpenAPI specification from code and annotations.",
     "keywords": [
-        "api",
-        "graphql",
-        "openapi",
-        "rest",
-        "swagger"
+        "nestjs",
+        "openapi"
     ],
     "author": {
         "name": "Arno Hilke",
@@ -15,16 +12,31 @@
     },
     "license": "MIT",
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahilke/openapi-microservice-playground.git"
+    },
     "scripts": {
-        "openapi-to-graphql": "openapi-to-graphql openapi/user.yaml openapi/petstore.yaml --save openapi-to-graphql/schema.graphql",
-        "openapi-to-graphql:user": "openapi-to-graphql openapi/user.yaml --save openapi-to-graphql/user.graphql"
+        "prebuild": "shx rm -rf dist",
+        "build": "nest build",
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "start:debug": "nest start --debug --watch",
+        "start:prod": "node dist/main"
     },
     "engines": {
         "node": ">=16.13.0",
         "npm": ">=8.1.0"
     },
     "dependencies": {
-        "openapi-to-graphql": "^2.6.0",
-        "openapi-to-graphql-cli": "^2.6.0"
+        "@nestjs/common": "^8.3.0",
+        "@nestjs/core": "^8.3.0",
+        "@nestjs/platform-express": "^8.3.0",
+        "rxjs": "^7.5.4"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^8.2.1",
+        "shx": "^0.3.4",
+        "typescript": "^4.5.5"
     }
 }
