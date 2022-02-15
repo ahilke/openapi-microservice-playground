@@ -15,10 +15,17 @@
     },
     "license": "MIT",
     "private": true,
-    "scripts": {},
+    "scripts": {
+        "openapi-to-graphql": "openapi-to-graphql openapi/user.yaml openapi/petstore.yaml --save openapi-to-graphql/schema.graphql",
+        "openapi-to-graphql:user": "openapi-to-graphql openapi/user.yaml --save openapi-to-graphql/user.graphql"
+    },
     "engines": {
         "node": ">=16.13.0",
         "npm": ">=8.1.0"
+    },
+    "dependencies": {
+        "openapi-to-graphql": "^2.6.0",
+        "openapi-to-graphql-cli": "^2.6.0"
     },
     "devDependencies": {
         "husky": "^4.3.8",

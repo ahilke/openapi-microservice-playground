@@ -1,0 +1,65 @@
+type Query {
+    """
+    Info for a specific pet
+
+    Equivalent to Swagger Petstore GET /pets/{petId}
+    """
+    pet(
+        """
+        The id of the pet to retrieve
+        """
+        petId: String!
+    ): Pet
+
+    """
+    List all pets
+
+    Equivalent to Swagger Petstore GET /pets
+    """
+    pets(
+        """
+        How many items to return at one time (max 100)
+        """
+        limit: Int
+    ): [Pet]
+
+    """
+    Equivalent to Ping API GET /user/{userId}
+    """
+    user(
+        """
+        ID of requested user.
+        """
+        userId: String!
+    ): User
+}
+
+type Pet {
+    id: BigInt!
+    name: String!
+    tag: String
+}
+
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values.
+"""
+scalar BigInt
+
+type User {
+    email: String!
+    id: String!
+    name: String
+}
+
+type Mutation {
+    """
+    Equivalent to Ping API POST /user
+    """
+    createUser(userInput: UserInput): User
+}
+
+input UserInput {
+    email: String!
+    id: String!
+    name: String
+}

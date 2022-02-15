@@ -1,0 +1,30 @@
+type Query {
+    """
+    Equivalent to GET /user/{userId}
+    """
+    user(
+        """
+        ID of requested user.
+        """
+        userId: String!
+    ): User
+}
+
+type User {
+    email: String!
+    id: String!
+    name: String
+}
+
+type Mutation {
+    """
+    Equivalent to POST /user
+    """
+    createUser(userInput: UserInput): User
+}
+
+input UserInput {
+    email: String!
+    id: String!
+    name: String
+}
