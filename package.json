@@ -1,0 +1,28 @@
+{
+    "name": "openapi-graphql-gateway",
+    "version": "0.0.0",
+    "description": "A demo project to showcase and experiment with various technologies to connect REST APIs described by OpenAPI with GraphQL.",
+    "keywords": [
+        "api",
+        "graphql",
+        "openapi",
+        "rest",
+        "swagger"
+    ],
+    "author": {
+        "name": "Arno Hilke",
+        "email": "arno.hilke@tum.de"
+    },
+    "license": "MIT",
+    "private": true,
+    "scripts": {},
+    "engines": {
+        "node": ">=16.13.0",
+        "npm": ">=8.1.0"
+    },
+    "devDependencies": {
+        "husky": "^4.3.8",
+        "lint-staged": "^12.1.5",
+        "prettier": "^2.5.1"
+    }
+}
