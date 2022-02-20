@@ -1,65 +1,42 @@
 type Query {
     """
-    Info for a specific pet
-
-    Equivalent to Swagger Petstore GET /pets/{petId}
+    Equivalent to Ticket API GET /tickets/{id}
     """
-    pet(
-        """
-        The id of the pet to retrieve
-        """
-        petId: String!
-    ): Pet
+    ticket(id: String!): Ticket
 
     """
-    List all pets
-
-    Equivalent to Swagger Petstore GET /pets
+    Equivalent to GET /users/{id}
     """
-    pets(
-        """
-        How many items to return at one time (max 100)
-        """
-        limit: Int
-    ): [Pet]
-
-    """
-    Equivalent to Ping API GET /user/{userId}
-    """
-    user(
-        """
-        ID of requested user.
-        """
-        userId: String!
-    ): User
+    userDto(id: String!): UserDto
 }
 
-type Pet {
-    id: BigInt!
-    name: String!
-    tag: String
-}
-
-"""
-The `BigInt` scalar type represents non-fractional signed whole numeric values.
-"""
-scalar BigInt
-
-type User {
-    email: String!
+type Ticket {
     id: String!
-    name: String
+    tags: [TagsListItem]!
+    title: String!
+}
+
+type TagsListItem {
+    """
+    A RGB or RGBA hex string describing a color.
+    """
+    color: String
+    title: String
+}
+
+type UserDto {
+    firstName: String!
+    id: String!
+    lastName: String!
 }
 
 type Mutation {
     """
-    Equivalent to Ping API POST /user
+    Equivalent to Ticket API POST /tickets
     """
-    createUser(userInput: UserInput): User
+    createTicket(ticketsInput: TicketsInput): Ticket
 }
 
-input UserInput {
-    email: String!
-    id: String!
-    name: String
+input TicketsInput {
+    ping: String
 }

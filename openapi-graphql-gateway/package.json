@@ -16,7 +16,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "openapi-to-graphql": "openapi-to-graphql openapi/user.yaml openapi/petstore.yaml --save openapi-to-graphql/schema.graphql",
+        "openapi-to-graphql": "openapi-to-graphql openapi/user.yaml openapi/ticket.yaml --save openapi-to-graphql/schema.graphql",
         "openapi-to-graphql:user": "openapi-to-graphql openapi/user.yaml --save openapi-to-graphql/user.graphql"
     },
     "engines": {
