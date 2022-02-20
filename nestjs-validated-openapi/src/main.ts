@@ -8,7 +8,7 @@ export async function createApp(): Promise<INestApplication> {
 
 async function bootstrap() {
     const app = await createApp();
-    await app.listen(9001);
+    await app.listen(9002);
 }
 
 bootstrap();

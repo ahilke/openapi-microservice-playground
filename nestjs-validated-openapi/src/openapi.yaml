@@ -1,0 +1,101 @@
+openapi: 3.0.3
+
+info:
+    title: Ticket API
+    version: 1.0.0
+
+paths:
+    /tickets:
+        post:
+            operationId: createTicket
+            tags:
+                - ticket
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                ping:
+                                    type: string
+            responses:
+                201:
+                    description: Created Ticket
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Ticket"
+                default:
+                    description: Unexpected Error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+
+    /tickets/{id}:
+        parameters:
+            - in: path
+              name: id
+              schema:
+                  type: string
+              required: true
+        get:
+            operationId: getTicket
+            tags:
+                - ticket
+            responses:
+                200:
+                    description: Requested Ticket
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Ticket"
+
+components:
+    schemas:
+        CreateTicketRequest:
+            type: object
+            properties:
+                title:
+                    type: string
+                tags:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            title:
+                                type: string
+                            color:
+                                type: string
+                                description: A RGB or RGBA hex string describing a color.
+                                pattern: ^#[0-9a-fA-F]{8}$|#[0-9a-fA-F]{6}$|#[0-9a-fA-F]{4}$|#[0-9a-fA-F]{3}$
+                                # Examples (OpenAPI does not support multiple examples for properties yet):
+                                # - "#F08"
+                                # - "#f085"
+                                # - "#AF7533"
+                                # - "#AF75339A"
+                        additionalProperties: false
+            required:
+                - title
+                - tags
+
+        Ticket:
+            allOf:
+                - $ref: "#/components/schemas/CreateTicketRequest"
+                - type: object
+                  properties:
+                      id:
+                          type: string
+                  required:
+                      - id
+
+        Error:
+            type: object
+            properties:
+                errorCode:
+                    type: string
+                message:
+                    type: string
+            required:
+                - errorCode
+                - message

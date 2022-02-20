@@ -11,6 +11,10 @@
     },
     "license": "MIT",
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahilke/openapi-microservice-playground.git"
+    },
     "scripts": {},
     "engines": {
         "node": ">=16.13.0",
