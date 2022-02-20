@@ -24,6 +24,7 @@
         "npm": ">=8.1.0"
     },
     "dependencies": {
+        "gql-gateway": "^1.0.10",
         "openapi-to-graphql": "^2.6.0",
         "openapi-to-graphql-cli": "^2.6.0"
     }
