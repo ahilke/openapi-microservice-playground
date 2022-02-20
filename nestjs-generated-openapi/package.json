@@ -20,7 +20,7 @@
         "prebuild": "shx rm -rf dist",
         "build": "npm run build:nest && npm run build:openapi",
         "build:nest": "nest build",
-        "build:openapi": "ts-node ./src/generate-openapi.ts",
+        "build:openapi": "nest start --config nest-cli.openapi.json",
         "start": "nest start",
         "start:dev": "nest start --watch",
         "start:debug": "nest start --debug --watch",

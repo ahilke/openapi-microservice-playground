@@ -1,0 +1,9 @@
+{
+    "sourceRoot": "./src",
+    "entryFile": "generate-openapi",
+    "compilerOptions": {
+        "deleteOutDir": false,
+        "tsConfigPath": "tsconfig.json",
+        "plugins": ["@nestjs/swagger/plugin"]
+    }
+}
