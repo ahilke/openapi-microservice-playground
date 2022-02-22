@@ -34,9 +34,18 @@ type Mutation {
     """
     Equivalent to Ticket API POST /tickets
     """
-    createTicket(ticketsInput: TicketsInput): Ticket
+    createTicket(createTicketRequestInput: CreateTicketRequestInput): Ticket
 }
 
-input TicketsInput {
-    ping: String
+input CreateTicketRequestInput {
+    tags: [TagsListItemInput]!
+    title: String!
+}
+
+input TagsListItemInput {
+    """
+    A RGB or RGBA hex string describing a color.
+    """
+    color: String
+    title: String
 }
