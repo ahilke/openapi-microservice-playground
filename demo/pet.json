@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "description": "The pet type from `petstore.yaml` (including references) to use with JSON Schema tools like https://json-schema-faker.js.org/",
+    "required": ["name", "photoUrls"],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "format": "int64"
+        },
+        "category": {
+            "$ref": "#/definitions/Category"
+        },
+        "name": {
+            "type": "string",
+            "example": "doggie"
+        },
+        "photoUrls": {
+            "type": "array",
+            "xml": {
+                "wrapped": true
+            },
+            "items": {
+                "type": "string",
+                "xml": {
+                    "name": "photoUrl"
+                }
+            }
+        },
+        "tags": {
+            "type": "array",
+            "xml": {
+                "wrapped": true
+            },
+            "items": {
+                "xml": {
+                    "name": "tag"
+                },
+                "$ref": "#/definitions/Tag"
+            }
+        },
+        "status": {
+            "type": "string",
+            "description": "pet status in the store",
+            "enum": ["available", "pending", "sold"]
+        }
+    },
+    "xml": {
+        "name": "Pet"
+    },
+    "definitions": {
+        "Tag": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        },
+        "Category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Category"
+            }
+        }
+    }
+}
