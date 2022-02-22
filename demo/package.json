@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "generate:ticket:client": "shx rm -rf dist/ticket/typescript-fetch && openapi-generator-cli generate -g typescript-fetch -i ../nestjs-validated-openapi/src/openapi.yaml -o dist/ticket/typescript-fetch",
+        "generate:ticket:server": "shx rm -rf dist/ticket/php-symfony && openapi-generator-cli generate -g php-symfony -i ../nestjs-validated-openapi/src/openapi.yaml -o dist/ticket/php-symfony"
+    },
+    "dependencies": {
+        "@openapitools/openapi-generator-cli": "^2.4.26",
+        "shx": "^0.3.4"
+    }
+}

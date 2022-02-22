@@ -20,7 +20,9 @@
         "node": ">=16.13.0",
         "npm": ">=8.1.0"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@openapitools/openapi-generator-cli": "^2.4.26"
+    },
     "devDependencies": {
         "husky": "^4.3.8",
         "lint-staged": "^12.1.5",
